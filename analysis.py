@@ -5,6 +5,7 @@ from pyspark.sql import functions
 sparkSession = SparkSession.builder.appName("parcial-2").getOrCreate()
 
 #Leemos el primer dataset
+# Tomado de https://www.kaggle.com/datasets/valakhorasani/mobile-device-usage-and-user-behavior-dataset
 mobileUserBehaviorDataframe = sparkSession.read.format("csv").option("header","true").option("inferSchema", "true").load("datasets/user_behavior_dataset.csv")
 #Imprimimos 5 lineas aleatorias del dataset
 print("Las columnas de este dataset son: ")
