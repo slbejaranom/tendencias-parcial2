@@ -61,8 +61,8 @@ for columna in electricCarChargingPatternsDataFrame.columns:
 
 print("Ahora seguiremos con los datos para el dataset de comportamiento de compras de clientes")
 
-#Leemos el segundo dataset
-# Tomado de https://www.kaggle.com/datasets/valakhorasani/electric-vehicle-charging-patterns
+#Leemos el tercer dataset
+# Tomado de https://www.kaggle.com/datasets/cameronseamons/electronic-sales-sep2023-sep2024
 customerPurchasePatterns = sparkSession.read.format("csv").option("header","true").option("inferSchema", "true").load("datasets/Electronic_sales_Sep2023-Sep2024.csv")
 #Imprimimos 5 lineas aleatorias del dataset
 print("Las columnas de este dataset son: ")
@@ -75,7 +75,7 @@ for i in range(len(customerPurchasePatterns.columns)):
     moda = customerPurchasePatterns.groupBy(columna).count().orderBy(functions.desc("count")).first()    
     print("La moda para la columna "+columna+" es:" +str(moda.asDict()))
 
-#Frecuencia relativa en tabla de patrones de carga de vehículos eléctricos separada por columna
+#Frecuencia relativa en tabla de comportamientos de compra separada por columna
 for columna in customerPurchasePatterns.columns:
     print(f"Frecuencia relativa para la columna '{columna}':")
     frecuencia_df = calcular_frecuencia_relativa(customerPurchasePatterns, columna)
