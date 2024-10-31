@@ -7,3 +7,9 @@ Para construir este script de Python para el análisis de tres datasets distinto
 ```
 python -m pip install -r requirements.txt
 ```
+
+Una vez estén instaladas por favor asegúrese de que también tiene descargados los archivos de dataset en la carpeta datasets, cuando esta condición se cumpla puede correr el script utilizando el comando:
+
+```
+python analysis.py
+```
